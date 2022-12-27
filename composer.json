@@ -1,0 +1,31 @@
+{
+    "name": "gerttimmerman/statamic-zapier",
+    "description": "Statamic Zapier",
+    "autoload": {
+        "psr-4": {
+            "GertTimmerman\\StatamicZapier\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gert Timmerman"
+        }
+    ],
+    "support": {
+        "email": "gert@carpenter.nl"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Statamic Zapier",
+            "description": "Push form submissions to Zapier webhooks"
+        },
+        "laravel": {
+            "providers": [
+                "GertTimmerman\\StatamicZapier\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}

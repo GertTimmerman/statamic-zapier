@@ -1,0 +1,3 @@
+# Statamic Zapier Addon
+
+This Statamic addon allows you to easily integrate your forms with Zapier, a popular automation tool. With this addon, you can set up multiple webhooks per form, giving you the flexibility to send form submissions to a variety of different destinations. Simply install the addon and configure your webhooks in the Statamic control panel. Then, test your setup by submitting a form on your site. If you run into any issues, be sure to check out the troubleshooting section in the README. This is a great way to streamline your workflow and automate repetitive tasks. Whether you're looking to send form submissions to a CRM, email marketing platform, or any other service, this addon makes it easy to connect your forms to the tools you use every day.

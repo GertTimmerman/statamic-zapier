@@ -52,7 +52,7 @@ class PushToWebhook
             $files = $event->submission->data()->get($handle);
 
             if (!is_array($files)) {
-                $files[] = $files;
+                $files = array($files);
             }
 
             foreach($files as $file) {

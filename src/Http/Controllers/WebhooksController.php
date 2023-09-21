@@ -33,7 +33,7 @@ class WebhooksController extends CpController
 
     public function update(Request $request)
     {
-        abort_unless(User::current()->can('configure form zapier webshooks'), 403);
+        abort_unless(User::current()->can('configure form zapier webhooks'), 403);
 
         $blueprint = Webhooks::blueprint();
 

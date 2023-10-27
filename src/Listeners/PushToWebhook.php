@@ -20,7 +20,7 @@ class PushToWebhook
     {
         $webhooks = Webhooks::byForm($event->submission->form->handle());
 
-        if (is_null($webhooks)) return;
+        if (is_null($webhooks) || config('statamic.zapier.disable_webhooks')) return;
 
         foreach ($webhooks as $webhook) {
             $this->sendToWebhook($webhook['webhook'], $event);
@@ -32,6 +32,10 @@ class PushToWebhook
      */
     private function sendToWebhook($webhookUrl, FormSubmitted $event)
     {
+
+        // Overwrite webhook url with force url if set in config
+        $webhookUrl = config('statamic.zapier.force_url') ?? $webhookUrl;
+
         // all data
         $data = $event->submission->data();
         $data['submission_id'] = $event->submission->id();

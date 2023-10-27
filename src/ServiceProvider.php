@@ -23,7 +23,10 @@ class ServiceProvider extends AddonServiceProvider
     {
         parent::boot();
 
-        // // load views
+        // load publishables
+        $this->bootPublishables();
+
+        // load views
         $this->loadViewsFrom(__DIR__ . '/../resources/views/', 'statamic-zapier');
 
         // load navigation
@@ -33,6 +36,17 @@ class ServiceProvider extends AddonServiceProvider
         Permission::group('statamic-zapier', 'Zapier Webhooks', function () {
             Permission::register('configure form zapier webhooks')->label('Configure Zapier Webhooks');
         });
+    }
+
+    public function bootPublishables(): static
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/statamic/zapier.php' => config_path('/statamic/zapier.php'),
+            ], 'config');
+        }
+
+        return $this;
     }
 
     private function bootNavigation(): void

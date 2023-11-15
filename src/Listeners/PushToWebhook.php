@@ -40,8 +40,6 @@ class PushToWebhook
         $data = $event->submission->data();
         $data['submission_id'] = $event->submission->id();
 
-        // dd($event->submission->data(), $event->submission->fields());
-
         // filter out the attachments
         $attachmentsFields = $event->submission->fields()->filter(function ($value, $key) use ($data) {
             return is_array($value) && isset($value['type']) && $value['type'] == "assets" && isset($data[$key]) && $data[$key] != null;
@@ -78,7 +76,7 @@ class PushToWebhook
                 ];
             }
             
-            unset($data[$handle]);
+            // unset($data[$handle]);
         }
 
         foreach($data as $name => $value) {

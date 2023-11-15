@@ -37,10 +37,8 @@ class PushToWebhook
         $webhookUrl = config('statamic.zapier.force_url') ?? $webhookUrl;
 
         // all data
-        $data = $event->submission->data();
+        $data = clone $event->submission->data();
         $data['submission_id'] = $event->submission->id();
-
-        // dd($event->submission->data(), $event->submission->fields());
 
         // filter out the attachments
         $attachmentsFields = $event->submission->fields()->filter(function ($value, $key) use ($data) {

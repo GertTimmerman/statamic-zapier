@@ -76,7 +76,7 @@ class PushToWebhook
                 ];
             }
             
-            // unset($data[$handle]);
+            unset($data[$handle]);
         }
 
         foreach($data as $name => $value) {
